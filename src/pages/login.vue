@@ -40,8 +40,8 @@ export default {
   methods: {
     ...mapActions(["login"]),
     handleLogin() {
-      if (!this.username || !this.password) {
-        return this.$message.warning("用户名或密码不能为空");
+      if (!this.username || !this.password || !this.agentid) {
+        return this.$message.warning("商户号或用户名或密码不能为空");
       }
       this.isLoging = true;
       this.$http
@@ -86,7 +86,7 @@ export default {
   }
 };
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 .m-list-group {
   border-radius: 3px;
   padding: 0;
@@ -97,16 +97,16 @@ export default {
   display: block;
   padding: 6px 10px;
   margin-bottom: -1px;
-  /* background-color: #fff; */
   background-color:#283443;
-  /* border: 1px solid #e7ecee; */
-   border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .m-list-group .m-list-group-item:first-child {
+  background-color:#283443;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
 .m-list-group .m-list-group-item:last-child {
+  background-color:#283443;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
