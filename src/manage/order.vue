@@ -22,7 +22,7 @@
 
       <el-row>
         <el-col :span="12">交易日期
-          <el-date-picker v-model="tradetimes" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+          <el-date-picker v-model="tradetimes" type="daterange" value-format="yyyy-MM-dd HH:mm:ss" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
           </el-date-picker>
         </el-col>
 
@@ -120,6 +120,9 @@ export default {
       if (this.tradetimes != null) {
         this.begintime = this.tradetimes[0];
         this.endtime = this.tradetimes[1];
+      }else {
+        this.begintime = null;
+        this.endtime = null;
       }
       //添加交易请求
       this.$http
