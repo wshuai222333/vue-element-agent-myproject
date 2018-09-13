@@ -22,7 +22,7 @@
 
       <el-row>
         <el-col :span="12">交易日期
-          <el-date-picker v-model="tradetimes" type="daterange" value-format="yyyy-MM-dd HH:mm:ss" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+          <el-date-picker v-model="tradetimes" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd HH:mm:ss" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
           </el-date-picker>
         </el-col>
 
@@ -166,6 +166,7 @@ export default {
     this.getLoginUser();
   },
   mounted() {
+    this.tradetimes = [this.getWeekBeforeFormatDate(), this.getNowFormatDate()];
     this.onQueryClick(1);
   }
 };
